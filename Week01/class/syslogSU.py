@@ -12,7 +12,6 @@ def su_open(filename, searchTerms):
 
     # Loop through the results
     for eachFound in is_found:
-
         # split the results
         sp_results = eachFound.split(" ")
 

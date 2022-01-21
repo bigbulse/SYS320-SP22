@@ -6,18 +6,16 @@ def _syslog(filename,listofKeywords):
 
     # Open a file
     with open(filename) as f:
-
         # read in the file and save it to a variable
         contents = f.readlines()
 
     # Lists to store the results
     results = []
+
     # Loop through the list returned. Each element is a line from the smallSyslog file
     for line in contents:
-
         # Loops through the keywords
         for eachKeyword in listofKeywords:
-
             # If the 'line' contains the keyword then it will print
             #if eachKeyword in line:
             # Searches returned results using a regular expression search
