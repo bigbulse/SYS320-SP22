@@ -1,5 +1,6 @@
 ---
-apache:
-  php: "[GET|POST].*/wordpress/wp-login.php.*, [GET|POST].*/mediawiki/index.php.*"
-  cgi: "[GET|POST].*/cgi-bin/test-cgi.*, [GET|POST].*/cgi-bin/htsearch.*"
+proxy:
+  qq: "QQ.*.exe.*bytes sent.*bytes received.*"
+  open: "QQ.*exe.*open through proxy.*"
+
 

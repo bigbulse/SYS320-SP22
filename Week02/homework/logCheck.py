@@ -3,7 +3,7 @@ import re, sys, yaml
 
 #  Open the YAML file
 try:
-    with open('../class/searchTerms.yaml', 'r') as yf:
+    with open('../homework/searchTerms.yaml', 'r') as yf:
         keywords = yaml.safe_load(yf)
 
 except EnvironmentError as e:
