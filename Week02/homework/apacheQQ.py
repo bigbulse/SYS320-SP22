@@ -4,7 +4,7 @@ importlib.reload(logCheck)
 
 # Filename, Remote Host, Bytes Sent, Bytes Received
 def qq_filename(filename, service, terms):
-    # Call syslogCheck and return the results
+    # Call logCheck and return the results
     is_found = logCheck._log(filename, service, terms)
 
     # found list
@@ -31,7 +31,7 @@ def qq_filename(filename, service, terms):
 
 # Proxy Open
 def qq_open(filename, service, terms):
-    # Call syslogCheck and return the results
+    # Call logCheck and return the results
     is_found = logCheck._log(filename, service, terms)
 
     # found list
