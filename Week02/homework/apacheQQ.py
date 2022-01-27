@@ -3,7 +3,7 @@ import importlib
 importlib.reload(logCheck)
 
 # SSH authentication failuires
-def apache_events(filename, service, terms):
+def qq_filename(filename, service, terms):
     # Call syslogCheck and return the results
     is_found = logCheck._log(filename, service, terms)
 
@@ -18,7 +18,7 @@ def apache_events(filename, service, terms):
 
         # Append the split value to the found list
         # GET /cig-bin/test-cgi HTTP/1.1" 404 435 "-" "-"
-        found.append(sp_results[3] + " " + sp_results[0] + " " + sp_results[1])
+        found.append(sp_results[0] + " " + sp_results[1] + " " + sp_results[3])
 
     # Remove duplicates by using set
     # and convert the list to a dict
