@@ -1,0 +1,6 @@
+---
+shell_attacks:
+    winShell: "cmd.exe"
+    nixShell: "/bin/bash"
+    webShell: "c99.php"
+
