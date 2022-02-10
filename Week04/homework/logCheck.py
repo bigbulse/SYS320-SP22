@@ -12,6 +12,7 @@ def _attacks(logfile, yamlfile):
 
     listofKeywords = []
 
+    print(keywords)
     terms = []
     for eachEntry in keywords:
         terms.append(keywords[eachEntry])
