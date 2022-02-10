@@ -10,10 +10,9 @@ def _attacks(logfile, yamlfile):
     except EnvironmentError as e:
         print(e.strerror)
 
+    listofKeywords = []
 
-   # listofKeywords = []
 
-'''
     for type in keywords:
         for value in type:
             listofKeywords.append(value)
@@ -48,4 +47,3 @@ def _attacks(logfile, yamlfile):
     results = sorted(results)
 
     return(results)
-    '''

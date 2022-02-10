@@ -34,7 +34,7 @@ for root, subfolders, filenames in os.walk(rootdir):
         #print(fileList)
         fList.append(fileList)
 
-# print(fList)
+print(fList)
 
 for eachFile in fList:
     logCheck._attacks(eachFile, searchFile)
