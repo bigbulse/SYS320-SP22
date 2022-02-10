@@ -12,11 +12,6 @@ def _attacks(logfile, yamlfile):
 
     listofKeywords = []
 
-
-    for type in keywords:
-        for value in type:
-            listofKeywords.append(value)
-
     # Open a file
     with open(logfile) as f:
         # read file and save it into a variable
