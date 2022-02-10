@@ -6,16 +6,17 @@ import logCheck
 # parser
 parser = argparse.ArgumentParser(
     description="Traverses a directory and attempted attacks in the weblogs",
-    epilog="Developed by Blaise Notter, 20220209"
+    epilog="Developed by Blaise Notter, 2022"
 )
 
 # Add argument to pass to the fs.py program
 parser.add_argument("-d", "--directory", required="True", help="Directory that you want to traverse.")
-parser.add_argument("-s", "--searcher", required="True", help="Finds attacks or attempted attakks in the weblogs.")
+parser.add_argument("-s", "--search", required="True", help="Finds attacks or attempted attakks in the weblogs.")
 
 # Parse the arguements
 args = parser.parse_args()
 rootdir = args.directory
+searchFile = args.search
 
 # In our story, we will traverse a directory
 if not os.path.isdir(rootdir):
@@ -33,10 +34,9 @@ for root, subfolders, filenames in os.walk(rootdir):
         #print(fileList)
         fList.append(fileList)
 
-print(fList)
-'''
+# print(fList)
+
 for eachFile in fList:
-    logCheck.attacks(eachFile)
-    '''
+    logCheck._attacks(eachFile, searchFile)
 
 

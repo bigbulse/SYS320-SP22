@@ -1,7 +1,8 @@
 import yaml, sys, re
 
 
-def attacks(logfile, yamlfile):
+def _attacks(logfile, yamlfile):
+
     try:
         with open(yamlfile, 'r') as yf:
             keywords = yaml.safe_load(yf)
@@ -9,8 +10,10 @@ def attacks(logfile, yamlfile):
     except EnvironmentError as e:
         print(e.strerror)
 
-    listofKeywords = []
 
+   # listofKeywords = []
+
+'''
     for type in keywords:
         for value in type:
             listofKeywords.append(value)
@@ -45,3 +48,4 @@ def attacks(logfile, yamlfile):
     results = sorted(results)
 
     return(results)
+    '''
