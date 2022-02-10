@@ -27,10 +27,7 @@ fList = []
 # Crawl through the provided directory
 for root, subfolders, filenames in os.walk(rootdir):
     for f in filenames:
-        #print(root + "/" + f)
-        fileList = root + "/" + f
-        #print(fileList)
-        fList.append(fileList)
+       print(f)
 
 
 def attacks(filename):
@@ -76,7 +73,7 @@ def attacks(filename):
 
     # sort the list
     results = sorted(results)
-    return results
+    return(results)
 
 for eachFile in fList:
     attacks(eachFile)
