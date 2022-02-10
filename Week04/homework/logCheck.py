@@ -12,6 +12,13 @@ def _attacks(logfile, yamlfile):
 
     listofKeywords = []
 
+    terms = []
+    for eachEntry in keywords:
+        terms.append(keywords[eachEntry])
+        for eachTerm in terms:
+            for key, value in eachTerm.items():
+                print(value)
+
     # Open a file
     with open(logfile) as f:
         # read file and save it into a variable
