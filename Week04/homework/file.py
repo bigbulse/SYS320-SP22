@@ -33,7 +33,10 @@ for root, subfolders, filenames in os.walk(rootdir):
         #print(fileList)
         fList.append(fileList)
 
+print(fList)
+'''
 for eachFile in fList:
     logCheck.attacks(eachFile)
+    '''
 
 

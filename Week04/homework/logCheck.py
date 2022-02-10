@@ -1,14 +1,13 @@
 import yaml, sys, re
 
-try:
-    with open('attacks.YAML', 'r') as yf:
-        keywords = yaml.safe_load(yf)
 
-except EnvironmentError as e:
-    print(e.strerror)
+def attacks(logfile, yamlfile):
+    try:
+        with open(yamlfile, 'r') as yf:
+            keywords = yaml.safe_load(yf)
 
-def attacks(filename, bookname):
-
+    except EnvironmentError as e:
+        print(e.strerror)
 
     listofKeywords = []
 
@@ -17,7 +16,7 @@ def attacks(filename, bookname):
             listofKeywords.append(value)
 
     # Open a file
-    with open(filename) as f:
+    with open(logfile) as f:
         # read file and save it into a variable
         contents = f.readlines()
 
@@ -40,8 +39,9 @@ def attacks(filename, bookname):
     # check to see if there are results
     if len(results) == 0:
         print("No Results")
-        sys.exit(1)
+        sys.exit()
 
     # sort the list
     results = sorted(results)
-    results(results)
+
+    return(results)
