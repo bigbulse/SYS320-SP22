@@ -34,8 +34,10 @@ for root, subfolders, filenames in os.walk(rootdir):
         #print(fileList)
         fList.append(fileList)
 
+# loooping through each of the access logs
 for eachFile in fList:
     print("Log File: " + eachFile)
+    # opening the logCheck function and saving the information into a vriable
     is_found = logCheck._attacks(eachFile, searchFile)
 
     # Found list

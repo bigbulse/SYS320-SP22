@@ -7,6 +7,7 @@ def _attacks(logfile, service):
             keywords = yaml.safe_load_all(yf)
             listofKeywords = []
 
+            # for each of the Entries in the keywords, append the value
             for eachEntry in keywords:
                 for key, value in eachEntry[service].items():
                     listofKeywords.append(value)
