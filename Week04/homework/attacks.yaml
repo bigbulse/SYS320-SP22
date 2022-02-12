@@ -1,5 +1,15 @@
 ---
 shell_attacks:
-    winShell: ".*cmd.exe.*"
-    nixShell: ".*/bin/bash.*"
-    webShell: ".*c99.php.*"
+  winShell: ".*cmd.exe.*"
+  nixShell: ".*/bin/bash.*"
+  webShell: ".*c99.php.*"
+sql_inject:
+  php: "*./phpymadmin.*"
+  mysql: ".*mysql.*"
+dir_traversal:
+  passwd: ".*/etc/passwd/.*"
+  back: ".*\\.\\..*"
+cms_attacks:
+  joomla: ".*joomla.*"
+  wordpress: ".*wordpress.*"
+  xmlrpc: ".*xmlrpc.*"

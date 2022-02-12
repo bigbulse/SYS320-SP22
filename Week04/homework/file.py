@@ -30,13 +30,28 @@ fList = []
 for root, subfolders, filenames in os.walk(rootdir):
     for f in filenames:
         #print(root + "/" + f)
-        fileList = root + "/" + f
+        fileList = root + f
         #print(fileList)
         fList.append(fileList)
 
-print(fList)
-
 for eachFile in fList:
-    logCheck._attacks(eachFile, searchFile)
+    print("Log File: " + eachFile)
+    is_found = logCheck._attacks(eachFile, searchFile)
 
+    # Found list
+    found = []
 
+    # Loop through the results
+    for eachFound in is_found:
+        # Split results
+        sp_results = eachFound.split(" ")
+        # Append split to found
+        found.append("IP: " + sp_results[0] + " URL: " + sp_results[6] + " Status Codes: " + sp_results[
+            8] + " Bytes Returned: " + sp_results[9])
+
+    # Remove duplicates
+    # and convert the list to a set.
+    getValues = set(found)
+
+    for eachValue in getValues:
+        print(eachValue)
