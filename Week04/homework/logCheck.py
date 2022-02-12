@@ -1,4 +1,4 @@
-import yaml, sys, re
+import yaml, re
 
 
 def _attacks(logfile, service):
@@ -35,7 +35,6 @@ def _attacks(logfile, service):
             # check to see if there are results
             if len(results) == 0:
                 print("No Results")
-                sys.exit()
 
             # sort the list
             results = sorted(results)
