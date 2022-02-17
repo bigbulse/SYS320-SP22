@@ -1,23 +1,23 @@
 # Week 5
 # This program will parse files and search for malicious activity indicators
 
-import os, argparse
-import logCheck
+import os, argparse, yaml
+import csvReader
 
 # parser
 parser = argparse.ArgumentParser(
-    description="Traverses a directory and attempted attacks in the weblogs",
+    description="Traverses a directory and finds attacks in the w32 processes",
     epilog="Developed by Blaise Notter, 2022"
 )
 
 # Add argument to pass to the fs.py program
 parser.add_argument("-d", "--directory", required="True", help="Directory that you want to traverse.")
-parser.add_argument("-s", "--search", required="True", help="Finds attacks or attempted attakks in the weblogs.")
+parser.add_argument("-s", "--search", required="True", help="Finds attacks or attempted attacks in the w32 processes.")
 
 # Parse the arguements
 args = parser.parse_args()
 rootdir = args.directory
-searchFile = args.search
+searchTerm = args.search
 
 # In our story, we will traverse a directory
 if not os.path.isdir(rootdir):
@@ -35,12 +35,24 @@ for root, subfolders, filenames in os.walk(rootdir):
         #print(fileList)
         fList.append(fileList)
 
-# loooping through each of the access logs
-for eachFile in fList:
-    print("Log File: " + eachFile)
-    # opening the logCheck function and saving the information into a vriable
-    is_found = logCheck._attacks(eachFile, searchFile)
+# Grabbing the keywords in the yaml file
+with open('Detections.yaml', 'r') as yf:
+    keywords = yaml.safe_load_all(yf)
 
+    # for each of the Entries in the keywords, append the value
+    for eachEntry in keywords:
+        attack = keywords[eachEntry]['detection']
+        listofKeywords = attack.split(",")
+        types = keywords[eachEntry]['description']
+        print("Description: " + types)
+      #      for key, value in eachEntry[searchTerm].items():
+      #          listofKeywords.append(value)
+
+for eachFile in fList:
+    # open the csvReader
+    # Search for the keywords in the yaml file for each log file
+    csvReader.logOpen(eachFile, listofKeywords)
+'''
     # Found list
     found = []
 
@@ -57,3 +69,4 @@ for eachFile in fList:
 
     for eachValue in getValues:
         print(eachValue)
+'''
