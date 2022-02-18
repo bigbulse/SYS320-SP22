@@ -10,14 +10,12 @@ parser = argparse.ArgumentParser(
     epilog="Developed by Blaise Notter, 2022"
 )
 
-# Add argument to pass to the fs.py program
-parser.add_argument("-d", "--directory", required="True", help="Directory that you want to traverse.")
-# parser.add_argument("-s", "--search", required="True", help="Finds attacks or attempted attacks in the w32 processes.")
+# Add argument to pass to the attackSearch.py program
+parser.add_argument("-d", "--directory", required=True, help="Directory that you want to traverse.")
 
 # Parse the arguements
 args = parser.parse_args()
 rootdir = args.directory
-# searchTerm = args.search
 
 # In our story, we will traverse a directory
 if not os.path.isdir(rootdir):
@@ -30,22 +28,25 @@ fList = []
 # Crawl through the provided directory
 for root, subfolders, filenames in os.walk(rootdir):
     for f in filenames:
-        #print(root + "/" + f)
         fileList = root + f
-        #print(fileList)
         fList.append(fileList)
 
 # Grabbing the keywords in the yaml file
 with open('Detections.yaml', 'r') as yf:
     keywords = yaml.safe_load_all(yf)
 
-    # for each of the Entries in the keywords, append the value
+    # for each of the Entries in the keywords
     for eachEntry in keywords:
+        # loops through at the keywords and values of the yaml file
         for key, value in eachEntry.items():
-            attack = value['detection']
+            # grabs the description of the attack from the yaml file
+            # saves this to variable 'types'
             types = value['description']
+            # sets the attack search vectors to variable 'attack'
+            attack = value['detect']
+            # formats the attack vectors into variable
             listofKeywords = attack.split(",")
-            print("Description: " + types)
+            print("Description of attack: " + types)
             for eachFile in fList:
                 # open the csvReader
                 # Search for the keywords in the yaml file for each log file
