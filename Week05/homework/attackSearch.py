@@ -1,5 +1,6 @@
 # Week 5
 # This program will parse files and search for malicious activity indicators
+# The Detections are pulled from a yaml file, but not one taken as an arguement
 
 import os, argparse, yaml
 import csvReader
