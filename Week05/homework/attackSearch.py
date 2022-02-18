@@ -12,12 +12,12 @@ parser = argparse.ArgumentParser(
 
 # Add argument to pass to the fs.py program
 parser.add_argument("-d", "--directory", required="True", help="Directory that you want to traverse.")
-parser.add_argument("-s", "--search", required="True", help="Finds attacks or attempted attacks in the w32 processes.")
+# parser.add_argument("-s", "--search", required="True", help="Finds attacks or attempted attacks in the w32 processes.")
 
 # Parse the arguements
 args = parser.parse_args()
 rootdir = args.directory
-searchTerm = args.search
+# searchTerm = args.search
 
 # In our story, we will traverse a directory
 if not os.path.isdir(rootdir):
@@ -41,32 +41,12 @@ with open('Detections.yaml', 'r') as yf:
 
     # for each of the Entries in the keywords, append the value
     for eachEntry in keywords:
-        attack = keywords[eachEntry]['detection']
-        listofKeywords = attack.split(",")
-        types = keywords[eachEntry]['description']
-        print("Description: " + types)
-      #      for key, value in eachEntry[searchTerm].items():
-      #          listofKeywords.append(value)
-
-for eachFile in fList:
-    # open the csvReader
-    # Search for the keywords in the yaml file for each log file
-    csvReader.logOpen(eachFile, listofKeywords)
-'''
-    # Found list
-    found = []
-
-    # Loop through the results
-    for eachFound in is_found:
-        # Split results
-        sp_results = eachFound.split(" ")
-        # Append split to found
-        found.append("Attack Type: " + sp_results[0] + "Description: " + "")
-
-    # Remove duplicates
-    # and convert the list to a set.
-    getValues = set(found)
-
-    for eachValue in getValues:
-        print(eachValue)
-'''
+        for key, value in eachEntry.items():
+            attack = value['detection']
+            types = value['description']
+            listofKeywords = attack.split(",")
+            print("Description: " + types)
+            for eachFile in fList:
+                # open the csvReader
+                # Search for the keywords in the yaml file for each log file
+                csvReader.logOpen(eachFile, listofKeywords)
