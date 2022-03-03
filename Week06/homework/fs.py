@@ -35,7 +35,7 @@ fList = []
 for root, subfolders, filenames in os.walk(rootdir):
     for f in filenames:
         #print(root + "/" + f)
-        fileList = root + "/" + f
+        fileList = os.path.join(root, f)
         #print(fileList)
         fList.append(fileList)
 
