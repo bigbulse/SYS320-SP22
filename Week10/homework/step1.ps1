@@ -1,6 +1,7 @@
-# Task 1
-# This script copies the powershell executable to the home dir
-
+<# 
+    Task 1 
+    Storyline: This script copies the powershell executable to the home dir and renames it to match with the pysa ransomware
+#>
 # Copy powershell.exe to home dir
 $file = "C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe"
 $dir = "C:\Users\blais\SYS320\SYS320-SP22\"
@@ -28,9 +29,11 @@ if ( Test-Path $newFile) {
 
 }
 
-# Task 2
+<# 
+    Task 2
+    Storyline: Create a randsom demand file named Readme.READ and puts it on the users desktop
+#>
 
-# Create a randsom demand file named Readme.READ
 # Ransom message
 $msg = "If you want your files restored, please contact me at blaise.notter@mymail.champlain.edu. I look forward to doing business with you ;-)"
 
