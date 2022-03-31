@@ -1,3 +1,4 @@
+# Task 1
 # This script copies the powershell executable to the home dir
 
 # Copy powershell.exe to home dir
@@ -19,11 +20,11 @@ Rename-Item -Path $location -NewName $pysa
 # Check that the copied file exists.
 if ( Test-Path $newFile) {
     
-    write-host -backgroundcolor "Green" -foregroundcolor "Black" "File was created!"
+    write-host -backgroundcolor "Green" -foregroundcolor "Black" "Pysa file was created!"
 
 } else {
 
-    write-host -backgroundcolor "Red" -foregroundcolor "Black" "File was not created!"
+    write-host -backgroundcolor "Red" -foregroundcolor "Black" "Pysa file was not created!"
 
 }
 
@@ -42,10 +43,9 @@ echo $msg | Out-File -FilePath $readme
 # Check that the readme file exists.
 if ( Test-Path $readme) {
     
-    write-host -backgroundcolor "Green" -foregroundcolor "Black" "File was created!"
+    write-host -backgroundcolor "Green" -foregroundcolor "Black" "Readme file was created!"
 
 } else {
 
-    write-host -backgroundcolor "Red" -foregroundcolor "Black" "File was not created!"
-
+    write-host -backgroundcolor "Red" -foregroundcolor "Black" "Readme file was not created!"
 }
