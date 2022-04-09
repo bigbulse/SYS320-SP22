@@ -71,6 +71,6 @@ switch ( $var )
         # Then output this to a ps1 file
         (Get-Content -Path ".\ips-bad.tmp") | % `
         { $_ -replace "^", 'netsh advfirewall firewall add rule name="BLOCK BAD IPs" dir=in action=block remoteip=' -replace "$"} | `
-        Out-File -FilePath "firerule_walls.ps1"
+        Out-File -FilePath "fw_rules.ps1"
     }
 }
