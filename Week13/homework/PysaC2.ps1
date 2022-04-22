@@ -41,7 +41,7 @@ if ((Invoke-SSHCommand -index 0 'dir Velociraptor_Bait.zip').ExitStatus -eq 0 ) 
 # Delete the Zip off the host
 Remove-Item -Path "C:\Windows\Temp\Velociraptor_Bait.zip"
 
-
+<#
 Turning off Windows Defender 
 and delelting volume shadow copies and restore points
 #>
